@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.extension.ExtendWith
 
 /**
  * Navigates to the root URL.
@@ -18,6 +19,7 @@ fun Page.wait(url: String) = waitForURL("$BASE_URL/$url")
 
 private val DO_HEADLESS = System.getenv()["CODEX_E2E_HEADLESS"].toBoolean()
 
+@ExtendWith(GlobalLifecycleExtension::class)
 open class PlaywrightTest(val loginAsAdmin: Boolean = false) {
 
     companion object {
