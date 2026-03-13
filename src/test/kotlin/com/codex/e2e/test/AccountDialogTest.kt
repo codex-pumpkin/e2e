@@ -7,6 +7,7 @@ import com.codex.e2e.PlaywrightTest
 import com.codex.e2e.wait
 import com.microsoft.playwright.Locator
 import org.junit.jupiter.api.Test
+import kotlin.io.path.Path
 import kotlin.test.assertEquals
 
 class AccountDialogTest : PlaywrightTest(true) {
@@ -72,6 +73,17 @@ class AccountDialogTest : PlaywrightTest(true) {
         page.locator("button").last().click()
 
         page.wait("login")
+    }
+
+    @Test
+    fun `Changing profile picture works`() {
+        val path = this.javaClass.classLoader.getResource("profile-pic.png")!!.path
+
+        openDialog()
+
+        page.locator("#profile-picture-input").setInputFiles(Path(path))
+
+        page.waitForTimeout(400.0)
     }
 
     @Test
