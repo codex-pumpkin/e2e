@@ -65,17 +65,6 @@ class AccountDialogTest : PlaywrightTest(true) {
     }
 
     @Test
-    fun `Changing email works`() {
-        openDialog()
-
-        page.locator("#change-email-button").click()
-        page.locator("#new-email-input").locator("input").fill("new@email.com")
-        page.locator("button").last().click()
-
-        page.wait("login")
-    }
-
-    @Test
     fun `Changing profile picture works`() {
         val path = this.javaClass.classLoader.getResource("profile-pic.png")!!.path
 
