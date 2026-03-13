@@ -56,6 +56,25 @@ class AccountDialogTest : PlaywrightTest(true) {
     }
 
     @Test
+    fun `Requesting password reset email works`() {
+        openDialog()
+
+        page.getByText("Reset password").click()
+        page.getByText("Confirm").click()
+    }
+
+    @Test
+    fun `Changing email works`() {
+        openDialog()
+
+        page.locator("#change-email-button").click()
+        page.locator("#new-email-input").locator("input").fill("new@email.com")
+        page.locator("button").last().click()
+
+        page.wait("login")
+    }
+
+    @Test
     fun `Logging out works`() {
         openDialog()
 
