@@ -32,7 +32,7 @@ class LlmConfigTest : PlaywrightTest(true) {
         // Delete added model again
         page.locator(".draft-item").locator("button").last().click()
         page.getByText("Save changes").click()
-        page.waitForTimeout(6000.0)
+        page.waitForTimeout(200.0)
         assertEquals(1, configCount.count())
     }
 
