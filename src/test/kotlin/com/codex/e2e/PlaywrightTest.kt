@@ -80,7 +80,7 @@ open class PlaywrightTest(val loginAsAdmin: Boolean = false) {
             .locator("input")
             .fill("Create a simple voltage divider.")
 
-        page.locator("mat-form-field").nth(1).click()
+        page.locator("mat-form-field").nth(0).click()
         page.locator("mat-option").first().click()
 
         page.locator("#prompt-input-send").click()

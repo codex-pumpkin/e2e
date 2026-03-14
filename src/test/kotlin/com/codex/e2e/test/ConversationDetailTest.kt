@@ -12,7 +12,7 @@ class ConversationDetailTest : PlaywrightTest(true) {
             .locator("input")
             .fill("Create a simple voltage divider.")
 
-        page.locator("mat-form-field").nth(1).click()
+        page.locator("mat-form-field").first().click()
         page.locator("mat-option").first().click()
 
         page.locator("#prompt-input-send").click()
@@ -26,9 +26,8 @@ class ConversationDetailTest : PlaywrightTest(true) {
             page.locator("#circuit-download").click()
         }
 
-        page.locator("mat-slide-toggle")
-            .locator("button")
-            .click()
+        page.locator("mat-form-field").first().click()
+        page.locator("mat-option").nth(2).click()
 
         val circuitVisible = 1 == page.locator("circuit-graph").count()
         assert(circuitVisible)
