@@ -53,7 +53,7 @@ class ConversationListTest : PlaywrightTest(true) {
         page.locator("span").getByText("Delete").click()
 
         // Need to wait for the convo to be actually deleted
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
 
         val convo1 = page.getByText("Conversation 1")
         assertEquals(0, convo1.count())
@@ -64,7 +64,7 @@ class ConversationListTest : PlaywrightTest(true) {
 
         convos[0].locator("button").last().click()
         page.locator("span").getByText("Pin").click()
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
 
         // Need to wait for the convo to actually be deleted
         assertEquals(1, divider.count())

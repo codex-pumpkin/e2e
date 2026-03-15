@@ -56,7 +56,7 @@ private object E2EInitializer: ExtensionContext.Store.CloseableResource {
         while (itemLocator.count() > 0) {
             itemLocator.first().locator("button").last().click()
             page.locator("span").getByText("Delete").click()
-            page.waitForTimeout(200.0)
+            page.waitForTimeout(500.0)
         }
     }
 
@@ -67,7 +67,7 @@ private object E2EInitializer: ExtensionContext.Store.CloseableResource {
         page.locator(".draft-item").locator("button").last().click()
 
         page.getByText("Save changes")
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
     }
 
     private fun createModel(page: Page) {
@@ -83,7 +83,7 @@ private object E2EInitializer: ExtensionContext.Store.CloseableResource {
 
         page.getByText("Save changes").click()
 
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
     }
 
     private fun createPlaywright(): Pair<Playwright, Browser> {

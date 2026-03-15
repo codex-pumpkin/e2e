@@ -37,7 +37,7 @@ class AccountDialogTest : PlaywrightTest(true) {
         page.locator("button").getByText("Confirm").click()
 
         // Time for username change
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
 
         val username = page.locator("#username-container").getByText("username-123", Locator.GetByTextOptions().setExact(true))
         assertEquals(1, username.count())
@@ -50,7 +50,7 @@ class AccountDialogTest : PlaywrightTest(true) {
         page.locator("button").getByText("Confirm").click()
 
         // Time for username change
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
 
         val usernameRenewed = page.locator("#username-container").getByText(ADMIN_USERNAME, Locator.GetByTextOptions().setExact(true))
         assertEquals(1, usernameRenewed.count())

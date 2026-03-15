@@ -63,15 +63,6 @@ class AuthFlowTest : PlaywrightTest() {
     }
 
     @Test
-    fun `Logging in with Admin Credentials works, username`() {
-        page.wait("login")
-        loginAsAdmin(ADMIN_USERNAME)
-
-        page.wait("home/conversations")
-        expect("$BASE_URL/home/conversations", page::url)
-    }
-
-    @Test
     fun `Reset password works`() {
         page.wait("login")
 

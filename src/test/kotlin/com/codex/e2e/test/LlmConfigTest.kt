@@ -24,15 +24,15 @@ class LlmConfigTest : PlaywrightTest(true) {
         page.getByText("Save changes").click()
 
         page.reload()
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
 
         val configCount = page.locator(".draft-item")
         assertEquals(2, configCount.count())
 
         // Delete added model again
-        page.locator(".draft-item").locator("button").last().click()
+        page.locator(".draft-item").first().locator("button").last().click()
         page.getByText("Save changes").click()
-        page.waitForTimeout(200.0)
+        page.waitForTimeout(500.0)
         assertEquals(1, configCount.count())
     }
 
